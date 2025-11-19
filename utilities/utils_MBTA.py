@@ -188,7 +188,7 @@ def train_model(data, Nnodes = 500, latent_dim = 10, fix = True, batchSize = 150
                 
                 idx[neg_pos] = True
                 idx = idx.view(x.shape[0], x.shape[1])
-                loss = ((x-x_hat)**2).flatten()[idx].sum() + 5000 * W_dist
+                loss = ((x-x_hat)**2)[idx].sum() + 5000 * W_dist
 
             if balance == False:
                 loss = ((x-x_hat)**2).sum(dim = 1).mean() + 5000 * W_dist
