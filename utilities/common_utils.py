@@ -256,17 +256,19 @@ def common_embedding_3(umap_here, pca_here, reconstructed, observed, translated,
 
         cat_data = np.vstack((reconstructed, translated, observed))
         l = umap_here.fit_transform(pca_here.fit_transform(cat_data))
-
+        labels = np.concatenate([
+        np.repeat("reconstructed", reconstructed.shape[0]),
+        np.repeat("translated", translated.shape[0]),
+        np.repeat("real", observed.shape[0])
+            ])
         df = pd.DataFrame(dict(x = l[:,0],
                              y = l[:,1],
-                             hue = np.row_stack((np.repeat("reconstructed", reconstructed.shape[0]),
-                                                 np.repeat('translated', translated.shape[0]),
-                                 np.repeat("real", reconstructed.shape[0]))).flatten(),
-                             cell_order = np.row_stack([np.arange(observed.shape[0])] * 3).flatten() 
+                             hue = labels,
+                             cell_order = np.row_stack([np.arange(l.shape[0])]).flatten() 
                              )
                         )
         return df
-
+        
 
 def loadDF(dir, subsample = None):
         df = pd.DataFrame()
