@@ -98,8 +98,4 @@ For the full version of each step, see the notebooks above.
 - **Questions / issues:** open a GitHub issue
 - **License:** MIT
 
-## Where to go next
-
-- **Questions / issues:** open a GitHub issue
-- **License:** MIT
 
