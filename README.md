@@ -93,9 +93,6 @@ For the full version of each step, see the notebooks above.
 
 ---
 
-## Where to go next
 
-- **Questions / issues:** open a GitHub issue
-- **License:** MIT
 
 
